@@ -10,7 +10,7 @@ RUN postconf -e 'smtpd_banner = $myhostname ESMTP $mail_name' && \
     postconf -e 'myorigin = /etc/mailname'
 
 
-CMD ["/usr/sbin/postfix", "start"]
+CMD ["/usr/sbin/postfix", "start-fg"]
 
 EXPOSE 25
 EXPOSE 465
