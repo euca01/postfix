@@ -1,6 +1,6 @@
 FROM alpine:3.18
 
-RUN apk add --no-cache postfix ca-certificates
+RUN apk add --no-cache bash postfix ca-certificates
 
 # Configurer Postfix
 RUN postconf -e 'smtpd_banner = $myhostname ESMTP $mail_name' && \
