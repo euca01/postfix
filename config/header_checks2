@@ -1,0 +1,14 @@
+/^Received:/                 IGNORE
+/^User-Agent:/               IGNORE
+/^X-Mailer:/                 IGNORE
+/^X-Originating-IP:/         IGNORE
+/^x-cr-[a-z]*:/              IGNORE
+/^Thread-Index:/             IGNORE
+/^X-MimeOLE:/   IGNORE
+/^X-MSMail-Priority:/   IGNORE
+/^X-Spam-Status:/   IGNORE
+/^X-Spam-Level:/    IGNORE
+/^X-Sanitizer:/     IGNORE
+/^X-Virus-Scanned/ IGNORE
+/^X-Priority/ IGNORE
+

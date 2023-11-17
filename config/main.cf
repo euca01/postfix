@@ -1,0 +1,103 @@
+# See /usr/share/postfix/main.cf.dist for a commented, more complete version
+
+
+smtpd_banner = $myhostname
+biff = no
+append_dot_mydomain = no
+
+
+## Paramétrage TLS reception des mails
+smtpd_use_tls = yes
+smtpd_tls_cert_file = /etc/postfix/tls/smtpd/pubkey.pem
+smtpd_tls_key_file = /etc/postfix/tls/smtpd/privkey.pem
+smtpd_tls_dh1024_param_file = /etc/postfix/tls/smtpd/dh2048.pem # Size of 2048
+
+smtpd_tls_loglevel = 1 #  Log only a summary message on TLS handshake completion
+smtpd_tls_security_level = may # Opportunistic TLS: announce STARTTLS support to remote SMTP clients, but do not require that clients use TLS encryption.
+smtpd_tls_received_header = yes
+smtpd_tls_auth_only = yes
+
+smtpd_tls_mandatory_protocols = !SSLv2, !SSLv3, !TLSv1, !TLSv1.1
+smtpd_tls_protocols = !SSLv2, !SSLv3, !TLSv1, !TLSv1.1
+smtpd_tls_mandatory_ciphers = medium
+tls_medium_cipherlist = ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:DHE-RSA-CHACHA20-POLY1305
+tls_preempt_cipherlist = no
+
+
+
+## Condition de réception des mails
+
+smtpd_helo_required = yes
+smtpd_recipient_restrictions =
+        reject_unauth_destination,
+        
+#       check_sender_access hash:/etc/postfix/sender_access
+
+#smtpd_milters = inet:localhost:12301,inet:localhost:54321
+#non_smtpd_milters = inet:localhost:12301,inet:localhost:54321
+smtpd_discard_ehlo_keywords = dsn
+
+
+## Paramétrage TLS envoi des mails
+
+
+
+smtp_tls_loglevel = 1
+
+# enable opportunistic TLS support in the SMTP server and client
+
+smtp_tls_security_level = may
+
+#dane
+smtp_dns_support_level = dnssec
+smtp_tls_policy_maps = mysql:/etc/postfix/tls_policy_sql.cf
+smtp_use_tls = yes
+smtp_tls_cert_file = /etc/postfix/tls/smtp/pubkey.pem
+smtp_tls_key_file = /etc/postfix/tls/smtp/privkey.pem
+smtp_tls_dh1024_param_file = /etc/postfix/tls/smtp/dh2048.pem # Size of 2048
+
+smtp_tls_loglevel = 1 #  Log only a summary message on TLS handshake completion
+smtp_tls_security_level = may # Opportunistic TLS: announce STARTTLS support to remote SMTP clients, but do not require that clients use TLS encryption.
+smtp_tls_received_header = yes
+smtp_tls_auth_only = yes
+
+smtp_tls_mandatory_protocols = !SSLv2, !SSLv3, !TLSv1, !TLSv1.1
+smtp_tls_protocols = !SSLv2, !SSLv3, !TLSv1, !TLSv1.1
+smtp_tls_mandatory_ciphers = medium
+
+bounce_template_file = /etc/postfix/bounce.cf
+confirm_delay_cleared = yes
+notify_classes = bounce, delay, policy, protocol, resource, software
+
+#alias_database = hash:/etc/aliases ##### Ajouter dans BDD ???
+mydestination = localhost
+relayhost = 
+mynetworks = 127.0.0.0/8 [::1]/128 # Only Localhost
+#mailbox_command = procmail -a "$EXTENSION"
+
+virtual_transport = dovecot-spamass
+
+#Virtual domains, users, and aliases
+virtual_mailbox_domains = mysql:/etc/postfix/sql/mysql-virtual_mailbox_domains.cf
+virtual_mailbox_maps = mysql:/etc/postfix/sql/mysql-virtual_mailbox_maps.cf
+virtual_alias_maps = mysql:/etc/postfix/sql/mysql-virtual_alias_maps.cf
+#virtual_alias_maps = mysql:/etc/postfix/mysql-virtual_alias_maps.cf, mysql:/etc/postfix/mysql-virtual-email2email.cf, hash:/etc/postfix/redirect
+### A vérifier pour mysql-virtual-email2email.cf
+
+milter_default_action = accept
+
+
+policy-spf_time_limit = 3600s ## Vraiment utile ?
+
+message_size_limit = 157286400 # max 150 Mo par email
+
+#header_checks = regexp:/etc/postfix/header_checks
+
+smtp_address_preference = ipv6 # On prefère l'IPv6 si disponible.
+
+
+disable_vrfy_command = yes # Disable the SMTP VRFY command
+
+#sender_canonical_maps = hash:/etc/postfix/sender_canonical
+
+local_header_rewrite_clients = permit_sasl_authenticated

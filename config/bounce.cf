@@ -1,0 +1,101 @@
+#
+# The failure template is used when mail is returned to the sender;
+# either the destination rejected the message, or the destination
+# could not be reached before the message expired in the queue.
+#
+
+failure_template = <<EOF
+Charset: us-ascii
+From: MAILER-DAEMON (Mail Delivery System)
+Subject: Undelivered Mail Returned to Sender
+Postmaster-Subject: Postmaster Copy: Undelivered Mail
+
+This is the mail system at host $myhostname.
+
+I'm sorry to have to inform you that your message could not
+be delivered to one or more recipients. It's attached below.
+
+BLABLAFor further assistance, please send mail to <postmaster>
+
+If you do so, please include this problem report. You can
+delete your own text from the attached returned message.
+
+                   The mail system
+EOF
+
+
+#
+# The delay template is used when mail is delayed. Note a neat trick:
+# the default template displays the delay_warning_time value as hours
+# by appending the _hours suffix to the parameter name; it displays
+# the maximal_queue_lifetime value as days by appending the _days
+# suffix.
+#
+# Other suffixes are: _seconds, _minutes, _weeks. There are no other
+# main.cf parameters that have this special behavior.
+#
+# You need to adjust these suffixes (and the surrounding text) if
+# you have very different settings for these time parameters.
+#
+
+delay_template = <<EOF
+Charset: utf8
+From: Robot-BERNA
+Subject: Courriel retarde
+Postmaster-Subject: Postmaster Warning: Delayed Mail
+
+Bonjour Jeune Padawan,
+
+Ceci est un message en provenance du service mail de berna.fr
+
+Dans le cas d'un fonctionnement normal, l'envoi d'un courriel depuis ton adresse @berna.fr est instantané. (De l'ordre d'une ou deux secondes)
+
+Malheureusement, l'email que tu as envoyé n'a pas pu être transmis instantanément. (Bizzare)
+Pas d'inquiétude ! Le serveur va automatiquement tenter de le renvoyer à nouveau. Tu n'as rien à faire !
+
+Tu recevras un second courriel si le serveur abandonne définitivement l'envoi.
+
+Une notification a été envoyée à Nicolas BERNA pour l'informer et éventuellement analyser les raisons de ce délai d'envoi anormal.
+
+NE SURTOUT PAS RENVOYER VOTRE MESSAGE !!!! CE MESSAGE INDIQUE SEULEMENT UN RETARD DE LIVRAISON. VOTRE MESSAGE EST TOUJOURS EN INSTANCE D’ENVOI.
+EOF
+
+
+#
+# The success template is used when mail is delivered to mailbox,
+# when an alias or list is expanded, or when mail is delivered to a
+# system that does not announce DSN support. It is an error to specify
+# a Postmaster-Subject: here.
+#
+
+success_template = <<EOF
+Charset: utf8
+From: Robot-BERNA
+Subject: Successful Mail Delivery Report
+
+Hey Dude :-)
+
+Ceci est un message en provenance du service mail de berna.fr
+
+Le message que vous avez envoyé il y a quelque temps a bien été envoyé !
+C'est tout bon !
+EOF
+
+
+#
+# The verify template is used for address verification (sendmail -bv
+# address...). or for verbose mail delivery (sendmail -v address...).
+# It is an error to specify a Postmaster-Subject: here.
+#
+
+verify_template = <<EOF
+Charset: us-ascii
+From: MAILER-DAEMON (Mail Delivery System)
+Subject: Mail Delivery Status Report
+
+This is the mail system at host $myhostname.
+
+Enclosed is the mail delivery report that you requested.
+
+                   The mail system
+EOF
