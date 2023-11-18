@@ -81,7 +81,8 @@ milter_default_action = accept
 
 policy-spf_time_limit = 3600s ## Vraiment utile ?
 
-message_size_limit = 2147483647 # max 150 Mo par email
+message_size_limit=2147483647
+# max 2 GB par email
 
 #header_checks = regexp:/etc/postfix/header_checks
 
