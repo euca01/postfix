@@ -4,7 +4,7 @@ RUN apk add --no-cache bash postfix postfix-mysql ca-certificates spamassassin-c
 
 COPY config/ /etc/postfix/
 
-CMD ["/etc/postfix/config/run.sh"] 
+CMD ["/etc/postfix/run.sh"] 
 #CMD ["/usr/sbin/postfix", "start-fg"]
 
 EXPOSE 25
