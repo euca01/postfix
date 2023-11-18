@@ -14,10 +14,10 @@ function add_config_value() {
 
 
 # Set needed config options
-add_config_value "myhostname" ${SERVER_HOSTNAME}
-add_config_value "mydomain" ${DOMAIN}
-add_config_value "mydestination" "${DESTINATION:-localhost}"
-add_config_value "myorigin" '$mydomain'
+add_config_value "myhostname" "${HOSTNAME}"
+add_config_value "mydomain" "${MYDOMAIN}"
+add_config_value "mydestination" "${MYDOMAIN}"
+add_config_value "myorigin" "${MYDOMAIN}"
 
 
 #Start services
