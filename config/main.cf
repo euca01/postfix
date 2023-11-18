@@ -102,3 +102,5 @@ disable_vrfy_command = yes
 #sender_canonical_maps = hash:/etc/postfix/sender_canonical
 
 local_header_rewrite_clients = permit_sasl_authenticated
+# Disable ETRN
+smtpd_etrn_restrictions = reject
