@@ -40,14 +40,6 @@ smtpd_discard_ehlo_keywords = dsn
 
 ## Paramétrage TLS envoi des mails
 
-
-
-smtp_tls_loglevel = 1
-
-# enable opportunistic TLS support in the SMTP server and client
-
-smtp_tls_security_level = may
-
 #dane
 smtp_dns_support_level = dnssec
 smtp_tls_policy_maps = mysql:/etc/postfix/tls_policy_sql.cf
