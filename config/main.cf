@@ -39,7 +39,7 @@ smtpd_recipient_restrictions =
 
 #smtpd_milters = inet:localhost:12301,inet:localhost:54321
 #non_smtpd_milters = inet:localhost:12301,inet:localhost:54321
-smtpd_discard_ehlo_keywords = dsn
+smtpd_discard_ehlo_keywords = dsn, ETRN
 
 
 ## Paramétrage TLS envoi des mails
