@@ -10,10 +10,14 @@ append_dot_mydomain = no
 smtpd_use_tls = yes
 smtpd_tls_cert_file = /etc/postfix/tls/smtpd/pubkey.pem
 smtpd_tls_key_file = /etc/postfix/tls/smtpd/privkey.pem
-smtpd_tls_dh1024_param_file = /etc/postfix/tls/smtpd/dh2048.pem # Size of 2048
+# Size of 2048
+smtpd_tls_dh1024_param_file = /etc/postfix/tls/smtpd/dh2048.pem
 
-smtpd_tls_loglevel = 1 #  Log only a summary message on TLS handshake completion
-smtpd_tls_security_level = may # Opportunistic TLS: announce STARTTLS support to remote SMTP clients, but do not require that clients use TLS encryption.
+#  Log only a summary message on TLS handshake completion
+smtpd_tls_loglevel = 1
+
+# Opportunistic TLS: announce STARTTLS support to remote SMTP clients, but do not require that clients use TLS encryption.
+smtpd_tls_security_level = may
 smtpd_tls_received_header = yes
 smtpd_tls_auth_only = yes
 
@@ -42,14 +46,17 @@ smtpd_discard_ehlo_keywords = dsn
 
 #dane
 smtp_dns_support_level = dnssec
-smtp_tls_policy_maps = mysql:/etc/postfix/tls_policy_sql.cf
+smtp_tls_policy_maps = mysql:/etc/postfix/sql/tls_policy_sql.cf
 smtp_use_tls = yes
 smtp_tls_cert_file = /etc/postfix/tls/smtp/pubkey.pem
 smtp_tls_key_file = /etc/postfix/tls/smtp/privkey.pem
-smtp_tls_dh1024_param_file = /etc/postfix/tls/smtp/dh2048.pem # Size of 2048
+smtp_tls_dh1024_param_file = /etc/postfix/tls/smtp/dh2048.pem
+#smtp_tls_dh1024_param_file : Size of 2048
 
-smtp_tls_loglevel = 1 #  Log only a summary message on TLS handshake completion
-smtp_tls_security_level = may # Opportunistic TLS: announce STARTTLS support to remote SMTP clients, but do not require that clients use TLS encryption.
+#  Log only a summary message on TLS handshake completion
+smtp_tls_loglevel = 1
+# Opportunistic TLS: announce STARTTLS support to remote SMTP clients, but do not require that clients use TLS encryption.
+smtp_tls_security_level = may
 smtp_tls_received_header = yes
 smtp_tls_auth_only = yes
 
@@ -61,10 +68,12 @@ bounce_template_file = /etc/postfix/bounce.cf
 confirm_delay_cleared = yes
 notify_classes = bounce, delay, policy, protocol, resource, software
 
-#alias_database = hash:/etc/aliases ##### Ajouter dans BDD ???
+###### Ajouter dans BDD ???
+#alias_database = hash:/etc/aliases
 mydestination = localhost
 relayhost = 
-mynetworks = 127.0.0.0/8 [::1]/128 # Only Localhost
+# Only Localhost
+mynetworks = 127.0.0.0/8 [::1]/128
 #mailbox_command = procmail -a "$EXTENSION"
 
 virtual_transport = dovecot-spamass
@@ -86,10 +95,11 @@ message_size_limit=2147483647
 
 #header_checks = regexp:/etc/postfix/header_checks
 
-smtp_address_preference = ipv6 # On prefère l'IPv6 si disponible.
+# On prefère l'IPv6 si disponible.
+smtp_address_preference = ipv6
 
-
-disable_vrfy_command = yes # Disable the SMTP VRFY command
+# Disable the SMTP VRFY command
+disable_vrfy_command = yes
 
 #sender_canonical_maps = hash:/etc/postfix/sender_canonical
 
