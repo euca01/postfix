@@ -50,15 +50,13 @@ smtp_tls_policy_maps = mysql:/etc/postfix/sql/tls_policy_sql.cf
 smtp_use_tls = yes
 smtp_tls_cert_file = /etc/postfix/tls/smtp/pubkey.pem
 smtp_tls_key_file = /etc/postfix/tls/smtp/privkey.pem
-smtp_tls_dh1024_param_file = /etc/postfix/tls/smtp/dh2048.pem
+#smtp_tls_dh1024_param_file = /etc/postfix/tls/smtp/dh2048.pem
 #smtp_tls_dh1024_param_file : Size of 2048
 
 #  Log only a summary message on TLS handshake completion
 smtp_tls_loglevel = 1
 # Opportunistic TLS: announce STARTTLS support to remote SMTP clients, but do not require that clients use TLS encryption.
 smtp_tls_security_level = may
-smtp_tls_received_header = yes
-smtp_tls_auth_only = yes
 
 smtp_tls_mandatory_protocols = !SSLv2, !SSLv3, !TLSv1, !TLSv1.1
 smtp_tls_protocols = !SSLv2, !SSLv3, !TLSv1, !TLSv1.1
@@ -87,8 +85,8 @@ virtual_alias_maps = mysql:/etc/postfix/sql/mysql-virtual_alias_maps.cf
 
 milter_default_action = accept
 
-
-policy-spf_time_limit = 3600s ## Vraiment utile ?
+## Vraiment utile ?
+policy-spf_time_limit = 3600s
 
 message_size_limit=2147483647
 # max 2 GB par email

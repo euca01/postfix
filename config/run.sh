@@ -19,6 +19,8 @@ add_config_value "mydomain" "${MYDOMAIN}"
 add_config_value "mydestination" "${MYDOMAIN}"
 add_config_value "myorigin" "${MYDOMAIN}"
 
+# Disable backwards compatibility mode
+add_config_value "compatibility_level" "3.6"
 
 #Start services
 
