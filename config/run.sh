@@ -19,6 +19,15 @@ add_config_value "mydomain" "${MYDOMAIN}"
 add_config_value "mydestination" "${MYDOMAIN}"
 add_config_value "myorigin" "${MYDOMAIN}"
 
+
+
+# Personnalisation de la configuration
+sed -i "s/DB_PASSWORD/${DB_PASSWORD}/g" /etc/postfix/sql/mysql-canonical.cf
+sed -i "s/DB_USER/${DB_USER}/g" /etc/postfix/sql/mysql-canonical.cf
+sed -i "s/DB_DATABASE/${DB_DATABASE}/g" /etc/postfix/sql/mysql-canonical.cf
+sed -i "s/DB_HOST/${DB_HOST}/g" /etc/postfix/sql/mysql-canonical.cf
+
+
 #Start services
 
 # If host mounting /var/spool/postfix, we need to delete old pid file before

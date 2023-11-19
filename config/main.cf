@@ -106,4 +106,4 @@ local_header_rewrite_clients = permit_sasl_authenticated
 smtpd_etrn_restrictions = reject
 
 #Disable backwards compatibility mode
-compatibility_level = N
+compatibility_level = 3.8
