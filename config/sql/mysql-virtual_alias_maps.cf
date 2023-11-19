@@ -1,6 +1,6 @@
 user = mailserver
-password = pUSgRBPVhdN1hlUR
-hosts = 127.0.0.1
+password = DBPASSWORD
+hosts = db
 dbname = mailserver
 query = SELECT destination FROM virtual_aliases WHERE source='%s'
 

@@ -19,13 +19,10 @@ add_config_value "mydomain" "${MYDOMAIN}"
 add_config_value "mydestination" "${MYDOMAIN}"
 add_config_value "myorigin" "${MYDOMAIN}"
 
-# Disable backwards compatibility mode
-add_config_value "compatibility_level" "3.6"
-
 #Start services
 
 # If host mounting /var/spool/postfix, we need to delete old pid file before
 # starting services
-rm -f /var/spool/postfix/pid/master.pid
+#rm -f /var/spool/postfix/pid/master.pid
 
-exec /usr/sbin/postfix -c /etc/postfix start-fg
+#exec /usr/sbin/postfix -c /etc/postfix start-fg

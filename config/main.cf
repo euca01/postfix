@@ -104,3 +104,6 @@ disable_vrfy_command = yes
 local_header_rewrite_clients = permit_sasl_authenticated
 # Disable ETRN
 smtpd_etrn_restrictions = reject
+
+#Disable backwards compatibility mode
+compatibility_level = N

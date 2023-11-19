@@ -3,9 +3,9 @@
 #
 
 # the user name and password to log into the mysql server
-hosts = localhost
+hosts = db
 user = mailserver
-password = pUSgRBPVhdN1hlUR
+password = DBPASSWORD
 
 # the database name on the servers
 dbname = mailserver
