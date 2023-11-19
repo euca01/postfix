@@ -3,12 +3,12 @@
 #
 
 # the user name and password to log into the mysql server
-hosts = db
-user = mailserver
-password = DBPASSWORD
+hosts = DB_HOST
+user = DB_USER
+password = DB_PASSWORD
 
 # the database name on the servers
-dbname = mailserver
+dbname = DB_DATABASE
 
 # the table name
 table = virtual_users

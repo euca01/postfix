@@ -23,6 +23,6 @@ add_config_value "myorigin" "${MYDOMAIN}"
 
 # If host mounting /var/spool/postfix, we need to delete old pid file before
 # starting services
-#rm -f /var/spool/postfix/pid/master.pid
+rm -f /var/spool/postfix/pid/master.pid
 
-#exec /usr/sbin/postfix -c /etc/postfix start-fg
+exec /usr/sbin/postfix -c /etc/postfix start-fg
