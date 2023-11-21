@@ -27,6 +27,31 @@ sed -i "s/DB_USER/${DB_USER}/g" /etc/postfix/sql/mysql-canonical.cf
 sed -i "s/DB_DATABASE/${DB_DATABASE}/g" /etc/postfix/sql/mysql-canonical.cf
 sed -i "s/DB_HOST/${DB_HOST}/g" /etc/postfix/sql/mysql-canonical.cf
 
+sed -i "s/DB_PASSWORD/${DB_PASSWORD}/g" /etc/postfix/sql/mysql-smtpd_sender_login_maps.cf
+sed -i "s/DB_USER/${DB_USER}/g" /etc/postfix/sql/mysql-smtpd_sender_login_maps.cf
+sed -i "s/DB_DATABASE/${DB_DATABASE}/g" /etc/postfix/sql/mysql-smtpd_sender_login_maps.cf
+sed -i "s/DB_HOST/${DB_HOST}/g" /etc/postfix/sql/mysql-smtpd_sender_login_maps.cf
+
+sed -i "s/DB_PASSWORD/${DB_PASSWORD}/g" /etc/postfix/sql/mysql-virtual_alias_maps.cf
+sed -i "s/DB_USER/${DB_USER}/g" /etc/postfix/sql/mysql-virtual_alias_maps.cf
+sed -i "s/DB_DATABASE/${DB_DATABASE}/g" /etc/postfix/sql/mysql-virtual_alias_maps.cf
+sed -i "s/DB_HOST/${DB_HOST}/g" /etc/postfix/sql/mysql-virtual_alias_maps.cf
+
+sed -i "s/DB_PASSWORD/${DB_PASSWORD}/g" /etc/postfix/sql/mysql-virtual_mailbox_domains.cf
+sed -i "s/DB_USER/${DB_USER}/g" /etc/postfix/sql/mysql-virtual_mailbox_domains.cf
+sed -i "s/DB_DATABASE/${DB_DATABASE}/g" /etc/postfix/sql/mysql-virtual_mailbox_domains.cf
+sed -i "s/DB_HOST/${DB_HOST}/g" /etc/postfix/sql/mysql-virtual_mailbox_domains.cf
+
+sed -i "s/DB_PASSWORD/${DB_PASSWORD}/g" /etc/postfix/sql/mysql-virtual_mailbox_maps.cf
+sed -i "s/DB_USER/${DB_USER}/g" /etc/postfix/sql/mysql-virtual_mailbox_maps.cf
+sed -i "s/DB_DATABASE/${DB_DATABASE}/g" /etc/postfix/sql/mysql-virtual_mailbox_maps.cf
+sed -i "s/DB_HOST/${DB_HOST}/g" /etc/postfix/sql/mysql-virtual_mailbox_maps.cf
+
+sed -i "s/DB_PASSWORD/${DB_PASSWORD}/g" /etc/postfix/sql/tls_policy_sql.cf
+sed -i "s/DB_USER/${DB_USER}/g" /etc/postfix/sql/tls_policy_sql.cf
+sed -i "s/DB_DATABASE/${DB_DATABASE}/g" /etc/postfix/sql/tls_policy_sql.cf
+sed -i "s/DB_HOST/${DB_HOST}/g" /etc/postfix/sql/tls_policy_sql.cf
+
 
 #Start services
 
