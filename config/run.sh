@@ -58,6 +58,6 @@ sed -i "s/DB_HOST/${DB_HOST}/g" /etc/postfix/sql/tls_policy_sql.cf
 # If host mounting /var/spool/postfix, we need to delete old pid file before
 # starting services
 rm -f /var/spool/postfix/pid/master.pid
-exec /usr/sbin/postalias /etc/postfix/aliases
+/usr/sbin/postalias /etc/postfix/aliases
 
 exec /usr/sbin/postfix -c /etc/postfix start-fg
