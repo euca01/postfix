@@ -4,8 +4,11 @@
 
 # the user name and password to log into the mysql server
 hosts = DB_HOST
+
 user = DB_USER
+
 password = DB_PASSWORD
+
 
 # the database name on the servers
 dbname = DB_DATABASE

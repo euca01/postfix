@@ -1,5 +1,9 @@
 user = DB_USER
+
 password = DB_PASSWORD
+
 hosts = DB_HOST
+
 dbname = DB_DATABASE
+
 query = SELECT CASE WHEN (SELECT COUNT(`destination`) FROM `virtual_aliases` WHERE `source` = '%s' LIMIT 1) >= 1 THEN (SELECT `destination` FROM `virtual_aliases` WHERE `source` = '%s' LIMIT 1) ELSE  (SELECT `email` FROM `virtual_users` WHERE `email` = '%s' LIMIT 1) END

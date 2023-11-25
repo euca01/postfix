@@ -1,7 +1,12 @@
 # Allow to customise TLS security by domain. See smtp_tls_policy_maps https://www.postfix.org/postconf.5.html#smtp_tls_policy_mapsf
 user = mailserver
+
 password = DBPASSWORD
+
 hosts = db
+
 dbname = mailserver
+
 query = SELECT result FROM securitylevel WHERE domain='%s'
+
 additional_conditions = limit 1
