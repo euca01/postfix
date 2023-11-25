@@ -68,7 +68,7 @@ notify_classes = bounce, delay, policy, protocol, resource, software
 
 ###### Ajouter dans BDD ???
 #alias_database = hash:/etc/aliases
-mydestination = mysql:/etc/postfix/sql/mysql-virtual_mailbox_domains.cf
+mydestination = localhost
 relayhost = 
 # Only Localhost
 mynetworks = 127.0.0.0/8 [::1]/128

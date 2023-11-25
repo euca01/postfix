@@ -16,7 +16,7 @@ function add_config_value() {
 # Set needed config options
 add_config_value "myhostname" "${HOSTNAME}"
 add_config_value "mydomain" "${MYDOMAIN}"
-add_config_value "mydestination" "${MYDOMAIN}"
+#add_config_value "mydestination" "${MYDOMAIN}"
 add_config_value "myorigin" "${MYDOMAIN}"
 
 
