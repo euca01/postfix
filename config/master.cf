@@ -10,11 +10,13 @@
 #               (yes)   (yes)   (yes)   (never) (100)
 # ==========================================================================
 smtp      inet  n       -       -       -       -       smtpd
+-o content_filter=spamassassin
 smtps     inet  n       -       -       -       -       smtpd
+-o content_filter=spamassassin
 postlog   unix-dgram n  -       n       -       1       postlogd
 
-dovecot-spamass   unix  -       n       n       -       -       pipe
-  flags=DRhu user=vmail:vmail argv=/usr/bin/spamc -d spamassassin -u ${recipient}
+spamassassin   unix  -       n       n       -       -       pipe
+  flags=DRhu user=vmail:vmail argv=/usr/bin/spamc -d spamassassin -u ${recipient} -e  /usr/sbin/sendmail -oi -f ${sender} ${recipient}
 
 #  flags=DRhu user=vmail:vmail argv=/usr/bin/spamc -u ${recipient} -e /usr/lib/dovecot/deliver -d ${recipient}
 
