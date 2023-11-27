@@ -16,7 +16,9 @@ smtps     inet  n       -       -       -       -       smtpd
 postlog   unix-dgram n  -       n       -       1       postlogd
 
 spamassassin   unix  -       n       n       -       -       pipe
-  flags=DRhu user=vmail:vmail argv=/usr/bin/spamc -d spamassassin -u ${recipient} -e  /usr/sbin/sendmail -oi -f ${sender} ${recipient}
+  flags=DRhu user=vmail:vmail argv=/usr/bin/spamc -d spamassassin -e  /usr/sbin/sendmail -oi -f ${sender} ${recipient}
+
+#/usr/bin/spamc -d spamassassin -u ${recipient} -e  /usr/sbin/sendmail -oi -f ${sender} ${recipient}
 
 #  flags=DRhu user=vmail:vmail argv=/usr/bin/spamc -u ${recipient} -e /usr/lib/dovecot/deliver -d ${recipient}
 
