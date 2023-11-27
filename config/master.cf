@@ -10,9 +10,9 @@
 #               (yes)   (yes)   (yes)   (never) (100)
 # ==========================================================================
 smtp      inet  n       -       -       -       -       smtpd
--o content_filter=spamassassin
+  -o content_filter=spamassassin
 smtps     inet  n       -       -       -       -       smtpd
--o content_filter=spamassassin
+  -o content_filter=spamassassin
 postlog   unix-dgram n  -       n       -       1       postlogd
 
 spamassassin   unix  -       n       n       -       -       pipe
