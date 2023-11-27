@@ -109,3 +109,4 @@ smtpd_etrn_restrictions = reject
 #Disable backwards compatibility mode
 compatibility_level = 3.8
 maillog_file = /dev/stdout
+virtual_mailbox_base = /var/mail/
