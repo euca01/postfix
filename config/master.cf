@@ -14,7 +14,9 @@ smtps     inet  n       -       -       -       -       smtpd
 postlog   unix-dgram n  -       n       -       1       postlogd
 
 dovecot-spamass   unix  -       n       n       -       -       pipe
-  flags=DRhu user=vmail:vmail argv=/usr/bin/spamc -u ${recipient} -e /usr/lib/dovecot/deliver -d ${recipient}
+  flags=DRhu user=vmail:vmail argv=/usr/bin/spamc -d spamassassin -u ${recipient}
+
+#  flags=DRhu user=vmail:vmail argv=/usr/bin/spamc -u ${recipient} -e /usr/lib/dovecot/deliver -d ${recipient}
 
 127.0.0.1:10025 inet n - n - - smtpd
   -o smtp_tls_security_level=may
