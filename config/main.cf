@@ -111,3 +111,5 @@ smtpd_etrn_restrictions = reject
 compatibility_level = 3.8
 maillog_file = /dev/stdout
 virtual_mailbox_base = /var/mail/
+virtual_uid_maps = static:1000
+virtual_gid_maps = static:1000
