@@ -74,7 +74,8 @@ relayhost =
 mynetworks = 127.0.0.0/8 [::1]/128
 #mailbox_command = procmail -a "$EXTENSION"
 
-virtual_transport = dovecot-spamass
+#virtual_transport = dovecot-spamass
+mailbox_transport = lmtp:imap:10100
 
 #Virtual domains, users, and aliases
 virtual_mailbox_domains = mysql:/etc/postfix/sql/mysql-virtual_mailbox_domains.cf
