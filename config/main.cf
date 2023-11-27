@@ -75,7 +75,8 @@ mynetworks = 127.0.0.0/8 [::1]/128
 #mailbox_command = procmail -a "$EXTENSION"
 
 #virtual_transport = dovecot-spamass
-mailbox_transport = lmtp:imap:10100
+mailbox_transport = lmtp:inet:imap:10100
+virtual_transport = lmtp:inet:imap:10100
 
 #Virtual domains, users, and aliases
 virtual_mailbox_domains = mysql:/etc/postfix/sql/mysql-virtual_mailbox_domains.cf
@@ -110,6 +111,3 @@ smtpd_etrn_restrictions = reject
 #Disable backwards compatibility mode
 compatibility_level = 3.8
 maillog_file = /dev/stdout
-virtual_mailbox_base = /var/mail/
-virtual_uid_maps = static:1000
-virtual_gid_maps = static:1000
