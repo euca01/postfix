@@ -53,11 +53,11 @@ sed -i "s/DB_DATABASE/${DB_DATABASE}/g" /etc/postfix/sql/tls_policy_sql.cf
 sed -i "s/DB_HOST/${DB_HOST}/g" /etc/postfix/sql/tls_policy_sql.cf
 
 
-if [ -f "/etc/letsencrypt/live/${MYDOMAIN}/fullchain.pem" ]; then
-    add_config_value "smtpd_tls_cert_file" "/etc/letsencrypt/live/${MYDOMAIN}/fullchain.pem"
-    add_config_value "smtpd_tls_key_file" "/etc/letsencrypt/live/${MYDOMAIN}/privkey.pem"
-    add_config_value "smtp_tls_cert_file" "/etc/letsencrypt/live/${MYDOMAIN}/fullchain.pem"
-    add_config_value "smtp_tls_key_file" "/etc/letsencrypt/live/${MYDOMAIN}/privkey.pem"
+if [ -f "/etc/letsencrypt/live/${DOMAINSSL}/fullchain.pem" ]; then
+    add_config_value "smtpd_tls_cert_file" "/etc/letsencrypt/live/${DOMAINSSL}/fullchain.pem"
+    add_config_value "smtpd_tls_key_file" "/etc/letsencrypt/live/${DOMAINSSL}/privkey.pem"
+    add_config_value "smtp_tls_cert_file" "/etc/letsencrypt/live/${DOMAINSSL}/fullchain.pem"
+    add_config_value "smtp_tls_key_file" "/etc/letsencrypt/live/${DOMAINSSL}/privkey.pem"
 
 
     if [ -f "/etc/postfix/dh2048.pem" ]; then
