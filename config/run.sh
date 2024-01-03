@@ -60,7 +60,7 @@ if [ -f "/etc/letsencrypt/live/${DOMAINSSL}/fullchain.pem" ]; then
     add_config_value "smtp_tls_key_file" "/etc/letsencrypt/live/${DOMAINSSL}/privkey.pem"
 
 
-    if [ -f "/etc/postfix/dh2048.pem" ]; then
+    if [ ! -f "/etc/postfix/dh2048.pem" ]; then
         openssl dhparam -out /etc/postfix/dh2048.pem 2048
     fi
 
