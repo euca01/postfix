@@ -11,7 +11,7 @@ smtpd_use_tls = yes
 smtpd_tls_cert_file = /etc/postfix/tls/smtpd/pubkey.pem
 smtpd_tls_key_file = /etc/postfix/tls/smtpd/privkey.pem
 # Size of 2048
-smtpd_tls_dh1024_param_file = /etc/postfix/tls/smtpd/dh2048.pem
+smtpd_tls_dh1024_param_file = /etc/postfix/dh2048.pem
 
 #  Log only a summary message on TLS handshake completion
 smtpd_tls_loglevel = 1

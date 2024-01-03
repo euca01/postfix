@@ -2,7 +2,7 @@ FROM alpine:3.19
 
 ENV TZ=Europe/Paris
 
-RUN apk add --no-cache bash postfix postfix-mysql ca-certificates spamassassin-client tzdata && \
+RUN apk add --no-cache bash postfix postfix-mysql ca-certificates spamassassin-client tzdata openssl && \
        ln -s /usr/share/zoneinfo/$TZ /etc/localtime
 
 COPY config/ /etc/postfix/
