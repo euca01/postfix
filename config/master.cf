@@ -16,7 +16,7 @@ smtps     inet  n       -       -       -       -       smtpd
 postlog   unix-dgram n  -       n       -       1       postlogd
 
 spamassassin   unix  -       n       n       -       -       pipe
-  flags=R user=nobody argv=/usr/bin/spamc -d spamassassin -e  /usr/sbin/sendmail -oi -f ${sender} ${recipient}
+  flags=R user=nobody argv=/usr/bin/spamc -d 172.100.0.20 -e  /usr/sbin/sendmail -oi -f ${sender} ${recipient}
 
 #/usr/bin/spamc -d spamassassin -u ${recipient} -e  /usr/sbin/sendmail -oi -f ${sender} ${recipient}
 
