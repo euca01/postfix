@@ -37,8 +37,8 @@ smtpd_recipient_restrictions =
         
 #       check_sender_access hash:/etc/postfix/sender_access
 
-#smtpd_milters = inet:localhost:12301,inet:localhost:54321
-#non_smtpd_milters = inet:localhost:12301,inet:localhost:54321
+smtpd_milters = inet:localhost:12301 #,inet:localhost:54321
+non_smtpd_milters = inet:localhost:12301 #,inet:localhost:54321
 smtpd_discard_ehlo_keywords = dsn, ETRN
 
 
