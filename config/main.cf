@@ -38,6 +38,8 @@ smtpd_recipient_restrictions =
 #       check_sender_access hash:/etc/postfix/sender_access
 
 #smtpd_milters = inet:opendkim:8891
+smtpd_milters = inet:opendmarc:8893
+non_smtpd_milters = inet:opendmarc:8893
 #,inet:localhost:54321
 #non_smtpd_milters = inet:opendkim:8891
 #,inet:localhost:54321
