@@ -98,6 +98,9 @@ message_size_limit=524288000
 virtual_mailbox_limit=0
 # max 500 MB par email
 
+smtpd_sasl_type = dovecot
+smtpd_sasl_path = inet:imap:20026
+smtpd_sasl_auth_enable = yes
 
 #header_checks = regexp:/etc/postfix/header_checks
 
