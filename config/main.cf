@@ -42,8 +42,8 @@ smtpd_relay_restrictions = permit_mynetworks, permit_sasl_authenticated, defer_u
 #       check_sender_access hash:/etc/postfix/sender_access
 
 #smtpd_milters = inet:opendkim:8891
-smtpd_milters = inet:opendmarc:8893
-non_smtpd_milters = inet:opendmarc:8893
+smtpd_milters = inet:172.100.0.22:8893
+non_smtpd_milters = inet:172.100.0.22:8893
 #,inet:localhost:54321
 #non_smtpd_milters = inet:opendkim:8891
 #,inet:localhost:54321
@@ -83,8 +83,8 @@ mynetworks = 127.0.0.0/8 [::1]/128
 #mailbox_command = procmail -a "$EXTENSION"
 
 #virtual_transport = dovecot-spamass
-mailbox_transport = lmtp:inet:imap:10100
-virtual_transport = lmtp:inet:imap:10100
+mailbox_transport = lmtp:inet:172.100.0.40:10100
+virtual_transport = lmtp:inet:172.100.0.40:10100
 
 #Virtual domains, users, and aliases
 virtual_mailbox_domains = mysql:/etc/postfix/sql/mysql-virtual_mailbox_domains.cf
@@ -101,7 +101,7 @@ virtual_mailbox_limit=0
 # max 500 MB par email
 
 smtpd_sasl_type = dovecot
-smtpd_sasl_path = inet:imap:20026
+smtpd_sasl_path = inet:172.100.0.40:20026
 smtpd_sasl_auth_enable = yes
 
 #header_checks = regexp:/etc/postfix/header_checks
