@@ -26,7 +26,7 @@ spamassassin   unix  -       n       n       -       -       pipe
 127.0.0.1:10026 inet n  -       n       -        -      smtpd
   -o cleanup_service_name=sendercleaner
   -o smtpd_milters=
-  -o mynetworks=127.0.0.0/8
+  -o smtpd_relay_restrictions=permit_mynetworks,reject
   -o non_smtpd_milters=
 
 
