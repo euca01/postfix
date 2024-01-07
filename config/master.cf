@@ -45,7 +45,7 @@ submission inet n       -       -       -       -       smtpd
   -o milter_macro_daemon_name=ORIGINATING
   -o smtpd_proxy_filter=127.0.0.1:10026
   -o smtpd_sasl_type=dovecot
-  -o smtpd_sasl_path=private/auth
+  -o smtpd_sasl_path=inet:imap:20026
   -o smtpd_sasl_auth_enable=yes
 #  -o smtpd_milters=
 #  -o non_smtpd_milters=
