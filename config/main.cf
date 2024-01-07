@@ -91,16 +91,11 @@ virtual_alias_maps = mysql:/etc/postfix/sql/mysql-virtual_alias_maps.cf
 
 milter_default_action = accept
 
-## Vraiment utile ?
-policy-spf_time_limit = 3600s
 mailbox_size_limit=0
 message_size_limit=524288000
 virtual_mailbox_limit=0
 # max 500 MB par email
 
-smtpd_sasl_type = dovecot
-smtpd_sasl_path = private/auth
-smtpd_sasl_auth_enable = yes
 
 #header_checks = regexp:/etc/postfix/header_checks
 

@@ -43,6 +43,9 @@ submission inet n       -       -       -       -       smtpd
   -o smtpd_relay_restrictions=reject_sender_login_mismatch,permit_sasl_authenticated,reject
   -o milter_macro_daemon_name=ORIGINATING
   -o smtpd_proxy_filter=127.0.0.1:10026
+  -o smtpd_sasl_type = dovecot
+  -o smtpd_sasl_path = private/auth
+  -o smtpd_sasl_auth_enable = yes
 #  -o smtpd_milters=
 #  -o non_smtpd_milters=
 #  -o sender_canonical_maps=hash:/etc/postfix/sender_canonical_maps
