@@ -16,50 +16,20 @@ smtps     inet  n       -       -       -       -       smtpd
 postlog   unix-dgram n  -       n       -       1       postlogd
 
 spamassassin   unix  -       n       n       -       -       pipe
-  flags=R user=nobody argv=/usr/bin/spamc -d 172.100.0.20 -e  /usr/sbin/sendmail -oi -f ${sender} ${recipient}
+  flags=R user=nobody argv=/usr/bin/spamc -d 172.100.0.20 -u ${recipient} -e  /usr/sbin/sendmail -oi -f ${sender} ${recipient}
 
 #/usr/bin/spamc -d spamassassin -u ${recipient} -e  /usr/sbin/sendmail -oi -f ${sender} ${recipient}
 
-#  flags=DRhu user=vmail:vmail argv=/usr/bin/spamc -u ${recipient} -e /usr/lib/dovecot/deliver -d ${recipient}
 
-127.0.0.1:10025 inet n - n - - smtpd
-  -o smtp_tls_security_level=may
-  -o content_filter=
-  -o smtpd_delay_reject=no
-  -o smtpd_client_restrictions=permit_mynetworks,reject
-  -o smtpd_helo_restrictions=
-  -o smtpd_sender_restrictions=
-  -o smtpd_recipient_restrictions=permit_mynetworks,reject
-  -o smtpd_data_restrictions=reject_unauth_pipelining
-  -o smtpd_end_of_data_restrictions=
-  -o smtpd_restriction_classes=
-  -o mynetworks=127.0.0.0/8
-  -o smtpd_error_sleep_time=0
-  -o smtpd_soft_error_limit=1001
-  -o smtpd_hard_error_limit=1000
-  -o smtpd_client_connection_count_limit=0
-  -o smtpd_client_connection_rate_limit=0
-  -o receive_override_options=no_unknown_recipient_checks,no_milters
-  -o local_header_rewrite_clients=
-  -o smtpd_milters=
-  -o local_recipient_maps=
-  -o relay_recipient_maps=
-  -o header_checks=regexp:/etc/postfix/header_checks
 
-policy-spf  unix  -       n       n       -       -       spawn
-     user=nobody argv=/usr/bin/policyd-spf
 
 127.0.0.1:10026 inet n  -       n       -        -      smtpd
-  -o cleanup_service_name=cleanmsa2
-  -o content_filter=filter:dummy
+  -o cleanup_service_name=sendercleaner
   -o smtpd_milters=
   -o non_smtpd_milters=
 
-filter    unix  -       n       n       -       10      pipe
-    flags=Rq user=filter null_sender=
-    argv=/etc/postfix/content-filter.sh -f ${sender} -- ${recipient}
 
-cleanmsa2      unix    n       -       n       -       0       cleanup
+sendercleaner      unix    n       -       n       -       0       cleanup
   -o header_checks=regexp:/etc/postfix/header_checks2
 
 submission inet n       -       -       -       -       smtpd
