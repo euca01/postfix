@@ -72,10 +72,10 @@ fi
 #Start services
 ## Modification des routes pour répondre en SMTP via le VPN
 ip route del default 
-#ip route add default via 172.100.0.250 dev eth0
-ip route add default via 10.8.0.1 dev eth0
+ip route add default via 172.100.0.250 dev eth0
+#ip route add default via 10.8.0.1 dev eth0
 ip route add 192.168.20.0/24 via 172.100.0.1 dev eth0
-ip route add 10.8.0.1 via 172.100.0.250
+ip route add 10.8.0.0/24 via 172.100.0.250
 
 ip -6 route del default via 2001:db8:100::1 dev eth0  metric 1024
 ip -6 route add default via 2001:db8:100::250 dev eth0  metric 1024
