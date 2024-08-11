@@ -79,6 +79,9 @@ ip route add 10.8.0.2 via 172.100.0.250
 ip -6 route del default via 2001:db8:100::1 dev eth0  metric 1024
 ip -6 route add default via 2001:db8:100::250 dev eth0  metric 1024
 
+#Force custom DNS
+echo "nameserver 172.100.0.220" > /etc/resolv.conf 
+
 # If host mounting /var/spool/postfix, we need to delete old pid file before
 # starting services
 rm -f /var/spool/postfix/pid/master.pid
