@@ -119,5 +119,5 @@ local_header_rewrite_clients = permit_sasl_authenticated
 smtpd_etrn_restrictions = reject
 
 #Disable backwards compatibility mode
-compatibility_level = 3.8
+compatibility_level = 1
 maillog_file = /dev/stdout
