@@ -7,11 +7,9 @@ append_dot_mydomain = no
 
 
 ## Paramétrage TLS reception des mails
-smtpd_use_tls = yes
+
 smtpd_tls_cert_file = /etc/postfix/tls/smtpd/pubkey.pem
 smtpd_tls_key_file = /etc/postfix/tls/smtpd/privkey.pem
-# Size of 2048
-smtpd_tls_dh1024_param_file = /etc/postfix/dh2048.pem
 
 #  Log only a summary message on TLS handshake completion
 smtpd_tls_loglevel = 1
@@ -41,12 +39,9 @@ smtpd_relay_restrictions = permit_mynetworks, permit_sasl_authenticated, defer_u
         
 #       check_sender_access hash:/etc/postfix/sender_access
 
-#smtpd_milters = inet:opendkim:8891
-smtpd_milters = inet:172.100.0.22:8893
-non_smtpd_milters = inet:172.100.0.22:8893
-#,inet:localhost:54321
-#non_smtpd_milters = inet:opendkim:8891
-#,inet:localhost:54321
+smtpd_milters = inet:opendkim:8891, inet:172.100.0.22:8893
+non_smtpd_milters = inet:opendkim:8891, inet:172.100.0.22:8893
+
 smtpd_discard_ehlo_keywords = dsn, ETRN
 
 
@@ -55,11 +50,9 @@ smtpd_discard_ehlo_keywords = dsn, ETRN
 #dane
 smtp_dns_support_level = dnssec
 smtp_tls_policy_maps = mysql:/etc/postfix/sql/tls_policy_sql.cf
-smtp_use_tls = yes
+
 smtp_tls_cert_file = /etc/postfix/tls/smtp/pubkey.pem
 smtp_tls_key_file = /etc/postfix/tls/smtp/privkey.pem
-#smtp_tls_dh1024_param_file = /etc/postfix/tls/smtp/dh2048.pem
-#smtp_tls_dh1024_param_file : Size of 2048
 
 #  Log only a summary message on TLS handshake completion
 smtp_tls_loglevel = 1
@@ -119,5 +112,5 @@ local_header_rewrite_clients = permit_sasl_authenticated
 smtpd_etrn_restrictions = reject
 
 #Disable backwards compatibility mode
-compatibility_level = 1
+compatibility_level = 3.6
 maillog_file = /dev/stdout
