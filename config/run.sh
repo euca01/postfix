@@ -16,7 +16,6 @@ function add_config_value() {
 # Set needed config options
 add_config_value "myhostname" "${HOSTNAME}"
 add_config_value "mydomain" "${MYDOMAIN}"
-#add_config_value "mydestination" "${MYDOMAIN}"
 add_config_value "myorigin" "${MYDOMAIN}"
 
 
@@ -60,9 +59,10 @@ if [ -f "/etc/letsencrypt/live/${DOMAINSSL}/fullchain.pem" ]; then
     add_config_value "smtp_tls_key_file" "/etc/letsencrypt/live/${DOMAINSSL}/privkey.pem"
 
 
-    if [ ! -f "/etc/postfix/dh2048.pem" ]; then
-        openssl dhparam -out /etc/postfix/dh2048.pem 2048
-    fi
+    #Le paramétrage n'est plus utile
+    ##if [ ! -f "/etc/postfix/dh2048.pem" ]; then
+    #   openssl dhparam -out /etc/postfix/dh2048.pem 2048
+    #fi
 
 fi
 
@@ -73,7 +73,6 @@ fi
 ## Modification des routes pour répondre en SMTP via le VPN
 ip route del default 
 ip route add default via 172.100.0.250 dev eth0
-#ip route add default via 10.8.0.1 dev eth0
 ip route add 192.168.0.0/16 via 172.100.0.1 dev eth0
 ip route add 10.8.0.0/24 via 172.100.0.250
 
@@ -81,7 +80,6 @@ ip -6 route del default via 2001:db8:100::1 dev eth0  metric 1024
 ip -6 route add default via 2001:db8:100::250 dev eth0  metric 1024
 
 #Force custom DNS
-#echo "nameserver 172.100.0.220" > /etc/resolv.conf 
 
 # If host mounting /var/spool/postfix, we need to delete old pid file before
 # starting services
