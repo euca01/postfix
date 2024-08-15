@@ -38,9 +38,9 @@ smtpd_recipient_restrictions =
 smtpd_relay_restrictions = permit_mynetworks, permit_sasl_authenticated, defer_unauth_destination
         
 #       check_sender_access hash:/etc/postfix/sender_access
-#inet:opendkim:8891, 
-smtpd_milters = inet:172.100.0.22:8893
-non_smtpd_milters = inet:172.100.0.22:8893
+#
+smtpd_milters = inet:172.100.0.22:8893, inet:opendkim:8891
+non_smtpd_milters = inet:172.100.0.22:8893, inet:opendkim:8891
 
 smtpd_discard_ehlo_keywords = dsn, ETRN
 
