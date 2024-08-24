@@ -65,7 +65,8 @@ smtp_tls_mandatory_ciphers = medium
 
 bounce_template_file = /etc/postfix/bounce.cf
 confirm_delay_cleared = yes
-notify_classes = bounce, delay, policy, protocol, resource, software
+# notify_classes = bounce, delay, policy, protocol, resource, software
+notify_classes = bounce, delay, protocol, resource, software
 
 ###### Ajouter dans BDD ???
 #alias_database = hash:/etc/aliases
