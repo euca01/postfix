@@ -47,8 +47,8 @@ submission inet n       -       -       -       -       smtpd
   -o smtpd_client_restrictions=permit_sasl_authenticated,reject
   -o milter_macro_daemon_name=ORIGINATING
   -o smtpd_proxy_filter=127.0.0.1:10026
-  -o smtpd_tls_cert_file=/etc/ssl-intranet/server.pem
-  -o smtpd_tls_key_file=/etc/ssl-intranet/server.key
+  -o smtpd_tls_cert_file=/etc/ssl-intranet/dovecot/server.pem
+  -o smtpd_tls_key_file=/etc/ssl-intranet/dovecot/server.key
 
 #  -o smtpd_milters=
 #  -o non_smtpd_milters=
