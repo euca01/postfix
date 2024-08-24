@@ -107,8 +107,8 @@ smtp_address_preference = ipv6
 disable_vrfy_command = yes
 
 # Add CA Path
-smtp_tls_CApath = /usr/share/ca-certificates/mozilla
-smtpd_tls_CApath = /usr/share/ca-certificates/mozilla
+smtp_tls_CAfile = /etc/ssl/certs/ca-certificates.crt
+smtpd_tls_CApath = /etc/ssl/certs/ca-certificates.crt
 tls_append_default_CA = no
 
 #sender_canonical_maps = hash:/etc/postfix/sender_canonical
