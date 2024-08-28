@@ -57,7 +57,8 @@ smtp_tls_key_file = /etc/postfix/tls/smtp/privkey.pem
 #  Log only a summary message on TLS handshake completion
 smtp_tls_loglevel = 1
 # Opportunistic TLS: announce STARTTLS support to remote SMTP clients, but do not require that clients use TLS encryption.
-smtp_tls_security_level = may
+smtp_tls_security_level = dane
+smtp_host_lookup = dns
 
 smtp_tls_mandatory_protocols = !SSLv2, !SSLv3, !TLSv1, !TLSv1.1
 smtp_tls_protocols = !SSLv2, !SSLv3, !TLSv1, !TLSv1.1
@@ -108,7 +109,7 @@ disable_vrfy_command = yes
 
 # Add CA Path
 smtp_tls_CAfile = /etc/ssl/certs/ca-certificates.crt
-smtpd_tls_CApath = /etc/ssl/certs/ca-certificates.crt
+smtpd_tls_CAfile = /etc/ssl/certs/ca-certificates.crt
 tls_append_default_CA = no
 
 #sender_canonical_maps = hash:/etc/postfix/sender_canonical
