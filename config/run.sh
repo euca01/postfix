@@ -52,11 +52,11 @@ sed -i "s/DB_DATABASE/${DB_DATABASE}/g" /etc/postfix/sql/tls_policy_sql.cf
 sed -i "s/DB_HOST/${DB_HOST}/g" /etc/postfix/sql/tls_policy_sql.cf
 
 
-if [ -f "/etc/letsencrypt/live/${DOMAINSSL}/fullchain.pem" ]; then
-    add_config_value "smtpd_tls_cert_file" "/etc/letsencrypt/live/${DOMAINSSL}/fullchain.pem"
-    add_config_value "smtpd_tls_key_file" "/etc/letsencrypt/live/${DOMAINSSL}/privkey.pem"
-    add_config_value "smtp_tls_cert_file" "/etc/letsencrypt/live/${DOMAINSSL}/fullchain.pem"
-    add_config_value "smtp_tls_key_file" "/etc/letsencrypt/live/${DOMAINSSL}/privkey.pem"
+if [ -f "/etc/tls-dane/${DOMAINSSL}/fullchain.pem" ]; then
+    add_config_value "smtpd_tls_cert_file" "/etc/postfix/tls/${DOMAINSSL}_RSA.crt"
+    add_config_value "smtpd_tls_key_file" "/etc/postfix/tls/${DOMAINSSL}_RSA.key"
+    add_config_value "smtp_tls_cert_file" "/etc/postfix/tls/${DOMAINSSL}_RSA.crt"
+    add_config_value "smtp_tls_key_file" "/etc/postfix/tls/${DOMAINSSL}_RSA.key"
 
 
     #Le paramétrage n'est plus utile
