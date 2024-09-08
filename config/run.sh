@@ -53,11 +53,12 @@ sed -i "s/DB_HOST/${DB_HOST}/g" /etc/postfix/sql/tls_policy_sql.cf
 
 
 
-add_config_value "smtpd_tls_cert_file" "/etc/postfix/tls/${DOMAINSSL}_RSA.crt"
-add_config_value "smtpd_tls_key_file" "/etc/postfix/tls/${DOMAINSSL}_RSA.key"
+#add_config_value "smtpd_tls_cert_file" "/etc/postfix/tls/${DOMAINSSL}_RSA.crt"
+#add_config_value "smtpd_tls_key_file" "/etc/postfix/tls/${DOMAINSSL}_RSA.key"
 add_config_value "smtp_tls_cert_file" "/etc/postfix/tls/${DOMAINSSL}_RSA.crt"
 add_config_value "smtp_tls_key_file" "/etc/postfix/tls/${DOMAINSSL}_RSA.key"
 
+add_config_value "smtpd_tls_chain_files" "/etc/postfix/tls-ECDSA/${DOMAINSSL}_ECDSA-P-256.key, /etc/postfix/tls-ECDSA/${DOMAINSSL}_ECDSA-P-256.crt, /etc/postfix/tls/${DOMAINSSL}_RSA.key, /etc/postfix/tls/${DOMAINSSL}_RSA.crt"
 
 
 
