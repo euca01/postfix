@@ -8,8 +8,7 @@ append_dot_mydomain = no
 
 ## Paramétrage TLS reception des mails
 
-smtpd_tls_cert_file = /etc/postfix/tls/smtpd/pubkey.pem
-smtpd_tls_key_file = /etc/postfix/tls/smtpd/privkey.pem
+smtpd_tls_chain_files = ToBeDefined
 
 #  Log only a summary message on TLS handshake completion
 smtpd_tls_loglevel = 1
@@ -51,8 +50,7 @@ smtpd_discard_ehlo_keywords = dsn, ETRN
 smtp_dns_support_level = dnssec
 smtp_tls_policy_maps = mysql:/etc/postfix/sql/tls_policy_sql.cf
 
-smtp_tls_cert_file = /etc/postfix/tls/smtp/pubkey.pem
-smtp_tls_key_file = /etc/postfix/tls/smtp/privkey.pem
+smtp_tls_chain_files = ToBeDefined
 
 #  Log only a summary message on TLS handshake completion
 smtp_tls_loglevel = 1
