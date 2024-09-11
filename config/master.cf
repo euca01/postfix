@@ -49,7 +49,8 @@ submission inet n       -       -       -       -       smtpd
   -o smtpd_proxy_filter=127.0.0.1:10026
   -o smtpd_tls_cert_file=/etc/ssl-intranet/dovecot/server.pem
   -o smtpd_tls_key_file=/etc/ssl-intranet/dovecot/server.key
-
+  -o smtpd_tls_chain_files=
+  
 #  -o smtpd_milters=
 #  -o non_smtpd_milters=
 #  -o sender_canonical_maps=hash:/etc/postfix/sender_canonical_maps
