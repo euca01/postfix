@@ -72,7 +72,7 @@ notify_classes = bounce, delay, resource, software
 mydestination = localhost
 relayhost = 
 # Only Localhost
-mynetworks = 127.0.0.0/8 [::1]/128
+mynetworks = 127.0.0.0/8 [::1]/128 172.100.0.0/16 [2001:0DB8:100::]/112
 #mailbox_command = procmail -a "$EXTENSION"
 
 #virtual_transport = dovecot-spamass
