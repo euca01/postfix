@@ -67,7 +67,7 @@ submission inet n       -       -       -       -       smtpd
   -o smtpd_tls_chain_files=
   
 # For SMTPS Submission
-465 inet n       -       -       -       -       smtpd
+466 inet n       -       -       -       -       smtpd
   -o syslog_name=postfix/submissionhttps
   -o smtpd_tls_wrappermode=yes
   -o smtpd_tls_security_level=encrypt
