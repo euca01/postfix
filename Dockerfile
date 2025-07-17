@@ -3,7 +3,8 @@ FROM alpine:3.22
 ENV TZ=Europe/Paris
 
 RUN apk add --no-cache bash postfix postfix-mysql ca-certificates spamassassin-client tzdata openssl curl ca-certificates-bundle && \
-       ln -s /usr/share/zoneinfo/$TZ /etc/localtime
+       ln -s /usr/share/zoneinfo/$TZ /etc/localtime && \
+       rm -rf /var/cache/apk/*
 
 COPY config/ /etc/postfix/
 
