@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 function add_config_value() {
   local key=${1}
   local value=${2}

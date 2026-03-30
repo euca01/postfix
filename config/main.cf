@@ -24,7 +24,9 @@ smtpd_tls_mandatory_ciphers = medium
 tls_medium_cipherlist = ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:DHE-RSA-CHACHA20-POLY1305
 tls_preempt_cipherlist = no
 
-
+smtpd_client_connection_rate_limit = 30
+smtpd_client_auth_rate_limit = 10
+anvil_rate_time_unit = 60s
 
 ## Condition de réception des mails
 
@@ -33,6 +35,11 @@ smtpd_recipient_restrictions =
         permit_sasl_authenticated,
         permit_mynetworks,
         reject_unauth_destination
+
+smtpd_helo_restrictions =
+  permit_mynetworks,
+  reject_non_fqdn_helo_hostname,
+  reject_invalid_helo_hostname
 
 smtpd_relay_restrictions = permit_mynetworks, permit_sasl_authenticated, defer_unauth_destination
         
@@ -86,7 +93,7 @@ virtual_alias_maps = mysql:/etc/postfix/sql/mysql-virtual_alias_maps.cf
 #virtual_alias_maps = mysql:/etc/postfix/mysql-virtual_alias_maps.cf, mysql:/etc/postfix/mysql-virtual-email2email.cf, hash:/etc/postfix/redirect
 ### A vérifier pour mysql-virtual-email2email.cf
 
-milter_default_action = accept
+milter_default_action = tempfail
 
 mailbox_size_limit=0
 message_size_limit=524288000
