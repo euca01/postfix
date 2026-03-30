@@ -48,7 +48,7 @@ sendercleaner      unix    n       -       n       -       0       cleanup
   -o smtpd_proxy_filter=127.0.0.1:10026
   -o smtpd_tls_cert_file=
   -o smtpd_tls_key_file=
-  -o smtpd_tls_chain_files=/etc/ssl-intranet/dovecot/serverEcdsa.key, /etc/ssl-intranet/dovecot/serverEcdsa.pem, /etc/ssl-intranet/dovecot/serverRsa.key, /etc/ssl-intranet/dovecot/serverRsa.pem
+  -o smtpd_tls_chain_files=/etc/ssl-intranet/dovecot/serverEcdsa.key,/etc/ssl-intranet/dovecot/serverEcdsa.pem,/etc/ssl-intranet/dovecot/serverRsa.key,/etc/ssl-intranet/dovecot/serverRsa.pem
 
 submission inet n       -       -       -       -       smtpd
   -o syslog_name=postfix/submission
@@ -64,7 +64,7 @@ submission inet n       -       -       -       -       smtpd
   -o smtpd_proxy_filter=127.0.0.1:10026
   -o smtpd_tls_cert_file=
   -o smtpd_tls_key_file=
-  -o smtpd_tls_chain_files=/etc/ssl-intranet/dovecot/serverEcdsa.key, /etc/ssl-intranet/dovecot/serverEcdsa.pem, /etc/ssl-intranet/dovecot/serverRsa.key, /etc/ssl-intranet/dovecot/serverRsa.pem
+  -o smtpd_tls_chain_files=/etc/ssl-intranet/dovecot/serverEcdsa.key,/etc/ssl-intranet/dovecot/serverEcdsa.pem,/etc/ssl-intranet/dovecot/serverRsa.key,/etc/ssl-intranet/dovecot/serverRsa.pem
   
 # For SMTPS Submission
 466 inet n       -       -       -       -       smtpd
@@ -82,7 +82,7 @@ submission inet n       -       -       -       -       smtpd
   -o smtpd_proxy_filter=127.0.0.1:10026
   -o smtpd_tls_cert_file=
   -o smtpd_tls_key_file=
-  -o smtpd_tls_chain_files=/etc/ssl-intranet/dovecot/serverEcdsa.key, /etc/ssl-intranet/dovecot/serverEcdsa.pem, /etc/ssl-intranet/dovecot/serverRsa.key, /etc/ssl-intranet/dovecot/serverRsa.pem
+  -o smtpd_tls_chain_files=/etc/ssl-intranet/dovecot/serverEcdsa.key,/etc/ssl-intranet/dovecot/serverEcdsa.pem,/etc/ssl-intranet/dovecot/serverRsa.key,/etc/ssl-intranet/dovecot/serverRsa.pem
 
 #  -o smtpd_milters=
 #  -o non_smtpd_milters=
