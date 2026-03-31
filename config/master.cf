@@ -50,10 +50,10 @@ sendercleaner      unix    n       -       n       -       0       cleanup
   -o smtpd_tls_key_file=
   -o smtpd_tls_chain_files=/etc/ssl-intranet/dovecot/serverEcdsa.key,/etc/ssl-intranet/dovecot/serverEcdsa.pem,/etc/ssl-intranet/dovecot/serverRsa.key,/etc/ssl-intranet/dovecot/serverRsa.pem
 
-submission inet n       -       -       -       -       smtpd
+127.0.0.1:10587 inet n       -       -       -       -       smtpd
   -o smtpd_tls_security_level=none
+  -o smtpd_authorized_xclient_hosts=127.0.0.1
   -o syslog_name=postfix/submission
-  -o tls_preempt_cipherlist=yes
   -o smtpd_sasl_auth_enable=yes
   -o smtpd_reject_unlisted_recipient=no
   -o smtpd_recipient_restrictions=
@@ -64,7 +64,7 @@ submission inet n       -       -       -       -       smtpd
   -o smtpd_proxy_filter=127.0.0.1:10026
   -o smtpd_tls_cert_file=
   -o smtpd_tls_key_file=
-  -o smtpd_tls_chain_files=/etc/ssl-intranet/dovecot/serverEcdsa.key,/etc/ssl-intranet/dovecot/serverEcdsa.pem,/etc/ssl-intranet/dovecot/serverRsa.key,/etc/ssl-intranet/dovecot/serverRsa.pem
+  -o smtpd_tls_chain_files=
   
 # For SMTPS Submission
 466 inet n       -       -       -       -       smtpd
