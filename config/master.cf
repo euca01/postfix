@@ -65,7 +65,8 @@ sendercleaner      unix    n       -       n       -       0       cleanup
   -o smtpd_tls_cert_file=
   -o smtpd_tls_key_file=
   -o smtpd_tls_chain_files=
-  
+  -o smtpd_tls_auth_only=no
+
 # For SMTPS Submission
 466 inet n       -       -       -       -       smtpd
   -o syslog_name=postfix/submissionhttps
