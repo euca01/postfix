@@ -12,7 +12,7 @@ smtpd_tls_chain_files = ToBeDefined
 
 #  Log only a summary message on TLS handshake completion
 smtpd_tls_loglevel = 1
-
+smtpd_authorized_xclient_hosts = 127.0.0.1
 # Opportunistic TLS: announce STARTTLS support to remote SMTP clients, but do not require that clients use TLS encryption.
 smtpd_tls_security_level = may
 smtpd_tls_received_header = yes

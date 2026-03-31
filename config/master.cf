@@ -51,8 +51,8 @@ sendercleaner      unix    n       -       n       -       0       cleanup
   -o smtpd_tls_chain_files=/etc/ssl-intranet/dovecot/serverEcdsa.key,/etc/ssl-intranet/dovecot/serverEcdsa.pem,/etc/ssl-intranet/dovecot/serverRsa.key,/etc/ssl-intranet/dovecot/serverRsa.pem
 
 submission inet n       -       -       -       -       smtpd
+  -o smtpd_tls_security_level=none
   -o syslog_name=postfix/submission
-  -o smtpd_tls_security_level=encrypt
   -o tls_preempt_cipherlist=yes
   -o smtpd_sasl_auth_enable=yes
   -o smtpd_reject_unlisted_recipient=no
