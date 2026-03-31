@@ -14,4 +14,4 @@ CMD ["/etc/postfix/run.sh"]
 
 EXPOSE 25
 EXPOSE 465
-EXPOSE 587
+EXPOSE 10587
